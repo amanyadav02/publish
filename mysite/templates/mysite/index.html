@@ -1,0 +1,31 @@
+{% extends 'mysite/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row" style="margin-top: 100px;">
+    <div class="col-sm-6">
+        <form class="form-inline" action="{% url 'home' %}" method="post">
+            <label class="sr-only" for="inlineFormInputName2">first name</label>
+            <input type="text" name="fname" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="first name">
+         
+            
+            
+            <form class="form-inline">
+                {% csrf_token %}
+                <label class="sr-only" for="inlineFormInputName2">lastname</label>
+                <input type="text" name="lname"  class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="last name"  >
+            <button type="submit" class="btn btn-secondary mb-2">search for a joke of your name</button>
+          </form>
+    </div>
+    <div class="card" style="width: 30rem;">
+        <div class="card-body">
+          <h5 class="card-title">joke of your name</h5>
+          <p class="card-text">{{joker}} </p>
+          <a href="{% url 'portfolio' %}" class="card-link">check my portfolio</a>
+        </div>
+      </div>
+
+    </div>
+   
+</div>
+{% endblock %}
